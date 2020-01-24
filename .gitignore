@@ -1,4 +1,5 @@
 node_modules
 server/public/stylesheets/style.css
 server/public/stylesheets/style.css.map
-*.exe
+vdp16-contained.exe
+vdp16-contained
