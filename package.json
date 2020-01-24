@@ -2,7 +2,11 @@
   "name": "vdp16-contained",
   "version": "1.0.0",
   "description": "TODO",
-  "main": "index.js",
+  "main": "server/server-main-standalone.js",
+  "bin": "server/server-main-standalone.js",
+  "pkg": {
+    "assets": ["server/public/**/*", "server/stylesheets/**/*", "server/views/**/*"]
+  },
   "dependencies": {
     "body-parser": "^1.19.0",
     "cookie-parser": "~1.4.4",
@@ -13,6 +17,7 @@
     "morgan": "~1.9.1",
     "node-sass-middleware": "0.11.0",
     "opn": "^6.0.0",
+    "pkg": "^4.4.2",
     "pngjs": "^3.4.0",
     "webpack-hot-middleware": "^2.25.0"
   },
@@ -29,7 +34,9 @@
     "game-build": "webpack --config webpack.game.prod.js",
     "game-dev": "webpack-dev-server --config webpack.game.dev.js",
     "editor": "node server/server-main.js",
-    "editor-open": "node server/server-main.js --open"
+    "editor-open": "node server/server-main.js --open",
+    "editor-build-exe": "npm run editor-build-exe-resources && pkg -t node10-win-x64 .",
+    "editor-build-exe-resources": "node-sass server/stylesheets/style.sass server/public/stylesheets/style.css && webpack --config server/webpack.editorMain.prod.js"
   },
   "author": "",
   "license": "ISC"
