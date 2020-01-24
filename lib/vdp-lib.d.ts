@@ -161,12 +161,16 @@ declare class Input {
 	private _translateKeyEvent;
 }
 export declare type TransparencyConfigOperation = 'add' | 'sub';
-declare enum CopySource {
+export declare enum CopySource {
 	current = 0,
 	rom = 1,
 	blank = 2
 }
-declare class LineTransformationArray {
+/**
+ * Use this class to provide a transformation for each line of the BG when drawing. You can create many kind of effects
+ * using this, look at the samples.
+ */
+export declare class LineTransformationArray {
 	_assignedId: number;
 	buffer: Float32Array;
 	length: number;
@@ -188,7 +192,7 @@ declare class LineTransformationArray {
 		y: number;
 	};
 }
-declare class LineColorArray {
+export declare class LineColorArray {
 	buffer: Float32Array;
 	length: number;
 	targetPaletteNumber: number;
