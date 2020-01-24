@@ -35,7 +35,7 @@
     "game-dev": "webpack-dev-server --config webpack.game.dev.js",
     "editor": "node server/server-main.js",
     "editor-open": "node server/server-main.js --open",
-    "editor-build-exe": "npm run editor-build-exe-resources && pkg -t node10-win-x64 .",
+    "editor-build-exe-win32": "npm run editor-build-exe-resources && pkg -t node8-win-x86 .",
     "editor-build-exe-resources": "node-sass server/stylesheets/style.sass server/public/stylesheets/style.css && webpack --config server/webpack.editorMain.prod.js"
   },
   "author": "",

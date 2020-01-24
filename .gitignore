@@ -1,4 +1,4 @@
 node_modules
 server/public/stylesheets/style.css
 server/public/stylesheets/style.css.map
-
+*.exe
