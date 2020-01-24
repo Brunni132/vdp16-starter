@@ -1,11 +1,16 @@
-import {vdp, color} from "../lib/vdp-lib";
+import {vdp, color, input} from "../lib/vdp-lib";
 
 export function *main() {
-	let loop = 0;
+	const pos = { x: 67, y: 117 };
 
 	while (true) {
-		vdp.drawObject('level1', 0, loop);
-		loop += 0.2;
+		if (input.isDown(input.Key.Right)) pos.x += 1;
+		if (input.isDown(input.Key.Left)) pos.x -= 1;
+		if (input.isDown(input.Key.Up)) pos.y -= 1;
+		if (input.isDown(input.Key.Down)) pos.y += 1;
+
+		vdp.drawObject('hello', pos.x, pos.y);
+		vdp.drawObject('move-with-arrows', 69, 240);
 		yield;
 	}
 }
