@@ -442,6 +442,7 @@ export declare class VDP {
 	_startFrame(): void;
 }
 export declare let vdp: VDP;
+export declare let input: Input;
 export declare function startStandalone({ resourceDir, scriptFile }: {
 	resourceDir: string;
 	scriptFile: string;
