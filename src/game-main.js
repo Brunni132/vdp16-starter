@@ -19,13 +19,15 @@ class TextPlane {
 
 
 export function *main() {
+	let scrollX = 0;
 	const textPlane = new TextPlane();
 	textPlane.drawText('Hello world!', 10, 14);
 	textPlane.drawText('This is an 8x8 text layer', 3, 16);
 
 	while (true) {
-		vdp.drawBackgroundTilemap('map');
+		vdp.drawBackgroundTilemap('map', { scrollX });
 		textPlane.drawPlane();
+		scrollX += 0.5;
 		yield;
 	}
 }
