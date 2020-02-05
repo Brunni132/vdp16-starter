@@ -4,7 +4,8 @@ export function *main() {
 	let loop = 0;
 
 	while (true) {
-		vdp.drawObject('level1', 0, loop);
+		vdp.drawBackgroundTilemap('level1', { scrollX: loop });
+		vdp.drawObject(vdp.sprite('mario').tile(0), 30, 176);
 		loop += 0.2;
 		yield;
 	}
