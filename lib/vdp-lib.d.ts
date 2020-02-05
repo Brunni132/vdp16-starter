@@ -151,14 +151,6 @@ declare class Input {
 	 * releases it.
 	 */
 	isDown(key: Key): boolean;
-	/**
-	 * Marks all newly pressed keys as held if they're still held.
-	 */
-	_process(): void;
-	/**
-	 * Returns -1 if the key doesn't map to an existing key, or the index of the key (Key).
-	 */
-	private _translateKeyEvent;
 }
 export declare type TransparencyConfigOperation = 'add' | 'sub';
 export declare enum CopySource {
@@ -171,7 +163,6 @@ export declare enum CopySource {
  * using this, look at the samples.
  */
 export declare class LineTransformationArray {
-	_assignedId: number;
 	buffer: Float32Array;
 	length: number;
 	constructor();
@@ -202,37 +193,6 @@ export declare class LineColorArray {
 	setLine(lineNo: number, _color: number): void;
 }
 export declare class VDP {
-	_gl: WebGLRenderingContext;
-	_gameData: any;
-	_mapProgram: any;
-	_modelViewMatrix: mat3;
-	_projectionMatrix: mat4;
-	_spriteProgram: any;
-	_opaquePolyProgram: any;
-	_mapTexture: WebGLTexture;
-	_paletteTexture: WebGLTexture;
-	_spriteTexture: WebGLTexture;
-	_otherTexture: WebGLTexture;
-	_paletteBpp: any;
-	private _fadeColor;
-	private _bgTransparency;
-	private _objTransparency;
-	private _bgBuffer;
-	private _tbgBuffer;
-	private _obj0Buffer;
-	private _obj1Buffer;
-	private _stats;
-	private _frameStarted;
-	private _romSpriteTex;
-	private _shadowSpriteTex;
-	private _romPaletteTex;
-	private _shadowPaletteTex;
-	private _romMapTex;
-	private _shadowMapTex;
-	private _nextLinescrollBuffer;
-	private _usedBgPixels;
-	private _usedObjCells;
-	private _usedVramWrites;
 	vec2: typeof vec2;
 	mat3: typeof mat3;
 	input: Input;
@@ -418,32 +378,6 @@ export declare class VDP {
 	 * each entry corresponds to two packed pixels, of 4 bits each.
 	 */
 	writeSprite(sprite: string | VdpSprite, data: Array2D): void;
-	private _applyTransparencyConfig;
-	private _computeStats;
-	/**
-	 * Renders the machine in the current state. Only available for the extended version of the GPU.
-	 */
-	private _doRender;
-	/**
-	 * @returns {number} the frame "cost" (i.e. how many frames it takes to "render" based on the stats). 1 means normal,
-	 * 2 means that it will run 30 FPS, 3 = 20 FPS, etc.
-	 * @private
-	 */
-	_endFrame(): number;
-	private _getMap;
-	private _getPalette;
-	private _getSprite;
-	/**
-	 * Get and reset the VDP stats.
-	 */
-	_getStats(): {
-		peakOBJ: number;
-		peakBG: number;
-		peakVramWrites: number;
-	};
-	private _initContext;
-	private _initMatrices;
-	_startFrame(): void;
 }
 export declare let vdp: VDP;
 export declare let input: Input;
