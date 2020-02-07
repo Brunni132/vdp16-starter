@@ -385,6 +385,7 @@ export declare function startStandalone({ resourceDir, scriptFile }: {
 	resourceDir: string;
 	scriptFile: string;
 }): void;
-export declare function startGame(canvasSelector: string, loadedCb: (vdp: VDP) => IterableIterator<void>, { resourceDir }?: {
+export declare function startGame(canvasSelector: string, loadedCb: (vdp: VDP) => IterableIterator<void>, { resourceDir, onError }?: {
 	resourceDir?: string;
+	onError?: (Error: any) => void;
 }): void;

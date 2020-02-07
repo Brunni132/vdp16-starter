@@ -4,17 +4,17 @@
 	<meta charset="utf-8" />
 	<title>VDP-16</title>
 	<style type="text/css">
-        body {
-            background: #111;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-        }
+    body {
+        background: #111;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
 
 		canvas {
       border: 1px solid #ccc;
@@ -25,11 +25,34 @@
 			image-rendering: pixelated;                 /* Awesome future-browsers       */
 			-ms-interpolation-mode: nearest-neighbor;   /* IE                            */
 		}
+
+    #error-box {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: red;
+      background: rgba(0,0,0,0.7);
+      border-radius: 10px;
+      padding: 5px
+    }
+
+    .visible {
+      display: block !important;
+    }
 	</style>
 </head>
 
 <body>
     <canvas id="glCanvas" width="256" height="256"></canvas>
+    <div id="error-box">GURU MEDITATION<br>
+      <br>
+      An error occurred and your game has been interrupted.<br>
+      Please open the developer tools console in your browser to get more information.<br>
+      On Firefox, press Ctrl+Shift+I (Command+option+I on Mac), on Chrome Ctrl+Shift+J (Command+option+J on Mac).
+      <br><br>
+      <span id="error-detail"></span>
+    </div>
 
     <script>
         var canvas = document.querySelector('#glCanvas');
