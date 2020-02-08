@@ -325,6 +325,14 @@ export declare class VDP {
 	 */
 	readMap(map: string | VdpMap, source?: CopySource): Array2D;
 	/**
+	 * Reads an object list (a type of map configured as such from the editor).
+	 * @param map name of the object list
+	 * @param source the most sensible option here is to read from the ROM, as object lists are not meant to be written
+	 * to, and if you write something inadvertently in the VRAM, you may corrupt an object list at that place.
+	 * @return an object representing an array of items with id (tile ID), x and y position, and optional custom properties.
+	 */
+	readObjectList(map: string|VdpMap, source?: CopySource): object;
+	/**
 	 * @param palette name of the palette (or palette itself). You may also query an arbitrary portion
 	 * of the palette memory using new VdpPalette(…) or offset an existing map, using vdp.map('myMap').offset(…).
 	 * @param source look at readMap for more info.

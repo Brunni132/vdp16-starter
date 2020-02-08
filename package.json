@@ -17,6 +17,7 @@
     "debug": "~2.6.9",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
+    "file-saver": "^2.0.2",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "node-sass-middleware": "0.11.0",
@@ -37,11 +38,12 @@
   "scripts": {
     "game-build": "webpack --config webpack.game.prod.js",
     "game-dev": "webpack-dev-server --config webpack.game.dev.js",
+    "distribute": "mkdir -p ../vdp16-dist && mv vdp16-contained* ../vdp16-dist && cp main.js ../vdp16-dist/ && cp index.html ../vdp16-dist/ && cp -r dist ../vdp16-dist/ && cp -r src ../vdp16-dist && cp -r lib ../vdp16-dist/",
     "editor": "node server/server-main.js",
     "editor-open": "node server/server-main.js --open",
-    "editor-build-exe-win32": "npm run editor-build-exe-resources && pkg -t node8-win-x86 .",
-    "editor-build-exe-mac": "npm run editor-build-exe-resources && pkg -t node8-macos-x64 .",
-    "editor-build-exe-linux": "npm run editor-build-exe-resources && pkg -t node8-linux-x86 .",
+    "editor-build-exe-win32": "npm run editor-build-exe-resources && pkg -t node8-win-x86 . && npm run distribute",
+    "editor-build-exe-mac": "npm run editor-build-exe-resources && pkg -t node8-macos-x64 . && npm run distribute",
+    "editor-build-exe-linux": "npm run editor-build-exe-resources && pkg -t node8-linux-x86 . && npm run distribute",
     "editor-build-exe-resources": "node-sass server/stylesheets/style.sass server/public/stylesheets/style.css && webpack --config server/webpack.editorMain.prod.js"
   },
   "author": "",
