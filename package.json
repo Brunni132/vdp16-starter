@@ -38,7 +38,7 @@
   "scripts": {
     "game-build": "webpack --config webpack.game.prod.js",
     "game-dev": "webpack-dev-server --config webpack.game.dev.js",
-    "distribute": "mkdir -p ../vdp16-dist && mv vdp16-contained* ../vdp16-dist && cp main.js ../vdp16-dist/ && cp index.html ../vdp16-dist/ && cp -r dist ../vdp16-dist/ && cp -r src ../vdp16-dist && cp -r lib ../vdp16-dist/",
+    "distribute": "mkdir -p ../vdp16-dist/lib && mv vdp16-contained* ../vdp16-dist && cp main.js ../vdp16-dist/ && cp index.html ../vdp16-dist/ && cp -r dist ../vdp16-dist/ && cp -r src ../vdp16-dist && cp lib/vdp-lib.js ../vdp16-dist/lib/ && cp lib/vdp-lib.d.ts ../vdp16-dist/lib/",
     "editor": "node server/server-main.js",
     "editor-open": "node server/server-main.js --open",
     "editor-build-exe-win32": "npm run editor-build-exe-resources && pkg -t node8-win-x86 . && npm run distribute",
